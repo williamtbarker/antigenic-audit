@@ -124,6 +124,14 @@ This checks formatting, lint, strict typing, branch-aware test coverage, and bot
 and source-distribution builds. See [DEVELOPMENT.md](DEVELOPMENT.md) for individual
 commands.
 
+## Synthetic scale benchmark
+
+Across three runs, Antigenic Audit accepted every clean prospective fixture and rejected every
+deliberately leaky fixture with its documented exit code. On an Apple M2 Max, the 500,000-row clean
+case completed in a median 4.90 seconds with median peak RSS
+486 MiB. These are structural synthetic checks, not biological model
+validation. [Method, ranges, and limitations](docs/BENCHMARK_MACOS_2026-09-03.md).
+
 ## Scientific boundary
 
 This tool cannot determine whether titers from different assays or laboratories are
