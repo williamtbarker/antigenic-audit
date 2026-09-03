@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using this metadata."
+title: "Antigenic Audit: role-aware evaluation checks for influenza antigenicity models"
+type: software
+authors:
+  - family-names: Barker
+    given-names: William T.
+version: 0.1.0
+date-released: 2026-09-03
+license: MIT
+repository-code: "https://github.com/williamtbarker/antigenic-audit"
+url: "https://github.com/williamtbarker/antigenic-audit"
+keywords:
+  - influenza
+  - bioinformatics
+  - machine learning
+  - data leakage
+  - temporal validation

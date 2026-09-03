@@ -1,0 +1,171 @@
+{
+  "dataset": {
+    "development_records": 3,
+    "development_unique_antisera": 2,
+    "development_unique_viruses": 3,
+    "records": 6,
+    "test_records": 3,
+    "test_unique_antisera": 3,
+    "test_unique_viruses": 3,
+    "train_records": 3,
+    "validation_records": 0
+  },
+  "generated_by": "antigenic-audit 0.1.0",
+  "issues": [
+    {
+      "code": "EXACT_PAIR_OVERLAP",
+      "count": 1,
+      "examples": [
+        "A/Victoria/3/1975 \u00d7 A/England/42/1972"
+      ],
+      "message": "Exact virus-antiserum pairs occur in both development and test data.",
+      "severity": "error"
+    },
+    {
+      "code": "NON_FORWARD_TIME_SPLIT",
+      "count": 1,
+      "examples": [
+        "latest development=1975",
+        "earliest test=1975"
+      ],
+      "message": "Prospective policy requires every test-virus year to follow every development-virus year.",
+      "severity": "error"
+    },
+    {
+      "code": "TEST_VIRUS_IN_DEVELOPMENT_TARGET",
+      "count": 1,
+      "examples": [
+        "A/Victoria/3/1975"
+      ],
+      "message": "Test viruses also occur as development target viruses.",
+      "severity": "error"
+    },
+    {
+      "code": "FUTURE_ANTISERUM",
+      "count": 1,
+      "examples": [
+        "A/Bangkok/1/1979 \u00d7 A/Future/1/1980"
+      ],
+      "message": "Some test rows pair a virus with an antiserum strain from a later year.",
+      "severity": "warning"
+    },
+    {
+      "code": "KNOWN_TEST_ANTISERUM",
+      "count": 1,
+      "examples": [
+        "A/England/42/1972"
+      ],
+      "message": "Test antisera also occur in development; this is expected for known-sera deployment.",
+      "severity": "info"
+    },
+    {
+      "code": "TEST_ANTISERUM_SEEN_AS_DEVELOPMENT_VIRUS",
+      "count": 2,
+      "examples": [
+        "A/England/42/1972",
+        "A/Victoria/3/1975"
+      ],
+      "message": "Test antisera occur as development target viruses.",
+      "severity": "info"
+    }
+  ],
+  "leakage": {
+    "duplicate_development_pairs": [],
+    "duplicate_test_pairs": [],
+    "exact_pair_overlap": [
+      "A/Victoria/3/1975 \u00d7 A/England/42/1972"
+    ],
+    "test_antiserum_in_development_antiserum": [
+      "A/England/42/1972"
+    ],
+    "test_antiserum_in_development_target": [
+      "A/England/42/1972",
+      "A/Victoria/3/1975"
+    ],
+    "test_virus_in_development_antiserum": [],
+    "test_virus_in_development_target": [
+      "A/Victoria/3/1975"
+    ]
+  },
+  "metrics": {
+    "development": {
+      "mae": 0.166666666667,
+      "n": 3,
+      "rmse": 0.173205080757,
+      "spearman_rho": 1.0
+    },
+    "test": {
+      "mae": 0.166666666667,
+      "n": 3,
+      "rmse": 0.173205080757,
+      "spearman_rho": 1.0
+    },
+    "test_by_virus_antiserum_lag_years": {
+      "1-2": {
+        "mae": 0.2,
+        "n": 1,
+        "rmse": 0.2,
+        "spearman_rho": null
+      },
+      "3-5": {
+        "mae": 0.1,
+        "n": 1,
+        "rmse": 0.1,
+        "spearman_rho": null
+      },
+      "future-antiserum": {
+        "mae": 0.2,
+        "n": 1,
+        "rmse": 0.2,
+        "spearman_rho": null
+      }
+    },
+    "test_by_virus_year": {
+      "1975": {
+        "mae": 0.1,
+        "n": 1,
+        "rmse": 0.1,
+        "spearman_rho": null
+      },
+      "1977": {
+        "mae": 0.2,
+        "n": 1,
+        "rmse": 0.2,
+        "spearman_rho": null
+      },
+      "1979": {
+        "mae": 0.2,
+        "n": 1,
+        "rmse": 0.2,
+        "spearman_rho": null
+      }
+    },
+    "train": {
+      "mae": 0.166666666667,
+      "n": 3,
+      "rmse": 0.173205080757,
+      "spearman_rho": 1.0
+    },
+    "validation": {
+      "mae": null,
+      "n": 0,
+      "rmse": null,
+      "spearman_rho": null
+    }
+  },
+  "outcome": "FAIL",
+  "policy": "prospective",
+  "schema_version": "antigenic-audit-report/v1",
+  "temporal": {
+    "development_virus_year_range": [
+      1968,
+      1975
+    ],
+    "test_future_antiserum_pairs": 1,
+    "test_minus_development_boundary_years": 0,
+    "test_virus_year_range": [
+      1975,
+      1979
+    ]
+  }
+}
