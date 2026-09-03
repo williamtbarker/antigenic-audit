@@ -1,5 +1,7 @@
 # Antigenic Audit
 
+[![CI](https://github.com/williamtbarker/antigenic-audit/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/williamtbarker/antigenic-audit/actions/workflows/ci.yml) [![Release](https://img.shields.io/github/v/release/williamtbarker/antigenic-audit)](https://github.com/williamtbarker/antigenic-audit/releases) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 `antigenic-audit` is a dependency-free Python CLI that checks pairwise influenza
 virus–antiserum evaluations for entity leakage, reversed-role leakage, and temporal
 overclaiming before model results are published.
