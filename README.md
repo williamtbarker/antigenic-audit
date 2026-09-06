@@ -51,7 +51,7 @@ a failing JSON report and returns exit code `2`:
 uv run antigenic-audit audit examples/leaky_pairs.csv --format json
 ```
 
-After the repository is public, it can also be run directly from GitHub:
+You can also run it directly from GitHub:
 
 ```bash
 uvx --from git+https://github.com/williamtbarker/antigenic-audit \
